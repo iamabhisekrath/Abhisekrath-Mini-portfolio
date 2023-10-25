@@ -1,7 +1,7 @@
-# 💼 Responsive Mini Portfolio
+
 
 https://iamabhisekrath.github.io/Abhisekrath-Mini-portfolio/
-### 💼 Responsive Mini Portfolio
+
 
 - Responsive mini portfolio website Using HTML CSS & JavaScript
 - Contains animations css.
