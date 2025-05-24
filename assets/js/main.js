@@ -1,72 +1,75 @@
 /*=============== FILTERS TABS ===============*/
-const tabs = document.querySelectorAll("[data-target]"),
-  tabContents = document.querySelectorAll("[data-content]");
+const tabs = document.querySelectorAll("[data-target]");
+const tabContents = document.querySelectorAll("[data-content]");
 
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     const target = document.querySelector(tab.dataset.target);
 
-    tabContents.forEach((tc) => {
-      tc.classList.remove("filters__active");
-    });
-    target.classList.add("filters__active");
+    // Hide all tab contents
+    tabContents.forEach((tc) => tc.classList.remove("filters__active"));
 
-    tabs.forEach((t) => {
-      t.classList.remove("filter-tab-active");
-    });
+    // Show the target content
+    if (target) {
+      target.classList.add("filters__active");
+    }
+
+    // Remove active class from all tabs
+    tabs.forEach((t) => t.classList.remove("filter-tab-active"));
+
+    // Add active class to the clicked tab
     tab.classList.add("filter-tab-active");
   });
 });
 
-/*=============== DARK LIGHT THEME ===============*/
+/*=============== DARK / LIGHT THEME ===============*/
 const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";
-const iconTheme = "ri-sun-line";
+const iconTheme = "ri-sun-line"; // Icon to be shown in light mode
 
-// Previously selected topic (if user selected)
+// Previously selected theme (saved in localStorage)
 const selectedTheme = localStorage.getItem("selected-theme");
 const selectedIcon = localStorage.getItem("selected-icon");
 
-// We obtain the current theme that the interface has by validating the dark-theme class
+// Helper functions
 const getCurrentTheme = () =>
   document.body.classList.contains(darkTheme) ? "dark" : "light";
 const getCurrentIcon = () =>
-  themeButton.classList.contains(iconTheme) ? "ri-moon-line" : "ri-sun-line";
+  themeButton.classList.contains(iconTheme) ? "ri-sun-line" : "ri-moon-line";
 
-// We validate if the user previously chose a topic
+// Apply previously saved theme and icon
 if (selectedTheme) {
-  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
-    darkTheme
-  );
-  themeButton.classList[selectedIcon === "ri-moon-line" ? "add" : "remove"](
-    iconTheme
-  );
+  document.body.classList.toggle(darkTheme, selectedTheme === "dark");
+  themeButton.classList.toggle(iconTheme, selectedIcon === "ri-sun-line");
 }
 
-// Activate / deactivate the theme manually with the button
+// Toggle theme and icon on click
 themeButton.addEventListener("click", () => {
-  // Add or remove the dark / icon theme
   document.body.classList.toggle(darkTheme);
   themeButton.classList.toggle(iconTheme);
-  // We save the theme and the current icon that the user chose
+
+  // Save to localStorage
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
-const sr = ScrollReveal({
-  origin: "top",
-  distance: "60px",
-  duration: 2500,
-  delay: 400,
-});
+if (typeof ScrollReveal !== "undefined") {
+  const sr = ScrollReveal({
+    origin: "top",
+    distance: "60px",
+    duration: 2500,
+    delay: 400,
+  });
 
-sr.reveal(`.profile__border`);
-sr.reveal(`.profile__name`, { delay: 500 });
-sr.reveal(`.profile__profession`, { delay: 600 });
-sr.reveal(`.profile__social`, { delay: 700 });
-sr.reveal(`.profile__info-group`, { interval: 100, delay: 700 });
-sr.reveal(`.profile__buttons`, { delay: 800 });
-sr.reveal(`.filters__content`, { delay: 900 });
-sr.reveal(`.filters`, { delay: 1000 });
+  sr.reveal(`.profile__border`);
+  sr.reveal(`.profile__name`, { delay: 500 });
+  sr.reveal(`.profile__profession`, { delay: 600 });
+  sr.reveal(`.profile__social`, { delay: 700 });
+  sr.reveal(`.profile__info-group`, { interval: 100, delay: 700 });
+  sr.reveal(`.profile__buttons`, { delay: 800 });
+  sr.reveal(`.filters__content`, { delay: 900 });
+  sr.reveal(`.filters`, { delay: 1000 });
+} else {
+  console.warn("ScrollReveal not loaded. Animations disabled.");
+}
