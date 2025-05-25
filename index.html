@@ -3,33 +3,289 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Abhisek Rath | Mini Portfolio</title>
-
+    <title>Abhisek Rath | Portfolio</title>
+    
     <!-- Favicon -->
-    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon" />
-
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+    
     <!-- Remix Icons -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
-
+    
     <!-- CSS -->
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
-    <!-- Header -->
+    <!-- Header Section -->
     <header class="profile container">
+      <!-- Theme Toggle Button -->
       <i class="ri-moon-line change-theme" id="theme-button"></i>
 
       <div class="profile__container grid">
         <div class="profile__data">
           <div class="profile__border">
             <div class="profile__perfil">
-              <img src="https://cdn.discordapp.com/attachments/946067492260958208/959887477072592896/kittun.png" alt="Profile Image" />
+              <img src="https://cdn.discordapp.com/attachments/946067492260958208/959887477072592896/kittun.png" alt="Abhisek Rath" />
             </div>
           </div>
 
           <h2 class="profile__name">Abhisek Rath</h2>
-          <h3 class="profile__profession">Tech Content Writer | Open Source Learner | Growth Hacker</h3>
+          <h3 class="profile__profession">
+            Tech Content Writer || Open Source Learner || Growth Hacker
+          </h3>
 
           <ul class="profile__social">
-            <a href="https://www.instagram.com/abhisek_rath/" target="_b
+            <a href="https://www.instagram.com/abhisek_rath/" target="_blank" class="profile__social-link">
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/abhisek-rath-b70a63149/" target="_blank" class="profile__social-link">
+              <i class="ri-linkedin-box-line"></i>
+            </a>
+            <a href="https://github.com/iamabhisekrath" target="_blank" class="profile__social-link">
+              <i class="ri-github-line"></i>
+            </a>
+            <a href="https://twitter.com/iamabhisekrath" target="_blank" class="profile__social-link">
+              <i class="ri-twitter-line"></i>
+            </a>
+          </ul>
+        </div>
+
+        <div class="profile__info grid">
+          <div class="profile__info-group">
+            <h3 class="profile__info-number">2+</h3>
+            <p class="profile__info-description">
+              Years of <br />experience
+            </p>
+          </div>
+          <div class="profile__info-group">
+            <h3 class="profile__info-number">6+</h3>
+            <p class="profile__info-description">
+              Companies <br />worked with
+            </p>
+          </div>
+          <div class="profile__info-group">
+            <h3 class="profile__info-number">5+</h3>
+            <p class="profile__info-description">
+              Satisfied <br />clients
+            </p>
+          </div>
+        </div>
+
+        <div class="profile__buttons">
+          <a download href="https://cdn.discordapp.com/attachments/960125868733251684/1040531888193949747/Resume_Abhisek_rath_1.jpg" class="button">
+            Download CV <i class="ri-download-line"></i>
+          </a>
+
+          <div class="profile__buttons-small">
+            <a href="https://api.whatsapp.com/send?phone=917853054650&text=Hello, more information!" target="_blank" class="button button__small button__gray">
+              <i class="ri-whatsapp-line"></i>
+            </a>
+            <a href="https://m.me/abhisekkumarrath" target="_blank" class="button button__small button__gray">
+              <i class="ri-messenger-line"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <section class="filters container">
+        <!-- Tabs -->
+        <ul class="filters__content">
+          <button class="filters__button filter-tab-active" data-target="#projects">
+            Projects
+          </button>
+          <button class="filters__button" data-target="#skills">Skills</button>
+        </ul>
+
+        <div class="filters__sections">
+          <!-- Projects Section -->
+          <div class="projects__content grid filters__active" data-content id="projects">
+            <article class="projects__card">
+              <img src="assets/img/project1.jpg" alt="Password Generator" class="projects__img" />
+              <div class="projects__modal">
+                <div>
+                  <span class="projects__subtitle">Web</span>
+                  <h3 class="projects__title">Password Generator</h3>
+                  <a href="https://github.com/iamabhisekrath/password-generater" class="projects__button button button__small">
+                    <i class="ri-link"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="projects__card">
+              <img src="assets/img/project2.jpg" alt="Portfolio Website" class="projects__img" />
+              <div class="projects__modal">
+                <div>
+                  <span class="projects__subtitle">Web</span>
+                  <h3 class="projects__title">Portfolio Website</h3>
+                  <a href="https://iamabhisekrath.github.io/AbhisekRath/" class="projects__button button button__small">
+                    <i class="ri-link"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="projects__card">
+              <img src="https://cdn.discordapp.com/attachments/960125873359560724/961317811542712431/Fresh__Healthy_Vegetables_Facebook_Post.jpg" alt="Zomato Web Page" class="projects__img" />
+              <div class="projects__modal">
+                <div>
+                  <span class="projects__subtitle">Web</span>
+                  <h3 class="projects__title">Zomato Web Page</h3>
+                  <a href="https://iamabhisekrath.github.io/Zomato-web/" class="projects__button button button__small">
+                    <i class="ri-link"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="projects__card">
+              <img src="https://cdn.discordapp.com/attachments/960125873359560724/961317811316228096/Brown_Beige_Illustrated_Zoom_Virtual_BG.jpg" alt="Content Writing" class="projects__img" />
+              <div class="projects__modal">
+                <div>
+                  <span class="projects__subtitle">Content</span>
+                  <h3 class="projects__title">Technical Writing</h3>
+                  <a href="https://abhisek.stck.me/" class="projects__button button button__small">
+                    <i class="ri-link"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="projects__card">
+              <img src="https://clearmindgraphics.com/site/wp-content/uploads/2017/06/shutterstock_296987657-scaled.jpg" alt="Graphics Design" class="projects__img" />
+              <div class="projects__modal">
+                <div>
+                  <span class="projects__subtitle">Design</span>
+                  <h3 class="projects__title">Graphics Design</h3>
+                  <a href="https://bento.me/abhisek-rath" class="projects__button button button__small">
+                    <i class="ri-link"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Skills Section -->
+          <div class="skills__content grid" data-content id="skills">
+            <div class="skills__area">
+              <h3 class="skills__title">Basic Skills</h3>
+              <div class="skills__box">
+                <div class="skills__group">
+                  <div class="skills__data">
+                    <i class="ri-checkbox-circle-line"></i>
+                    <div>
+                      <h3 class="skills__name">Leadership</h3>
+                      <span class="skills__level">Intermediate</span>
+                    </div>
+                  </div>
+                  <div class="skills__data">
+                    <i class="ri-checkbox-circle-line"></i>
+                    <div>
+                      <h3 class="skills__name">Communication</h3>
+                      <span class="skills__level">Advanced</span>
+                    </div>
+                  </div>
+                  <div class="skills__data">
+                    <i class="ri-checkbox-circle-line"></i>
+                    <div>
+                      <h3 class="skills__name">Problem Solving</h3>
+                      <span class="skills__level">Intermediate</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="skills__group">
+                  <div class="skills__data">
+                    <i class="ri-checkbox-circle-line"></i>
+                    <div>
+                      <h3 class="skills__name">Research</h3>
+                      <span class="skills__level">Advanced</span>
+                    </div>
+                  </div>
+                  <div class="skills__data">
+                    <i class="ri-checkbox-circle-line"></i>
+                    <div>
+                      <h3 class="skills__name">Collaboration</h3>
+                      <span class="skills__level">Advanced</span>
+                    </div>
+                  </div>
+                  <div class="skills__data">
+                    <i class="ri-checkbox-circle-line"></i>
+                    <div>
+                      <h3 class="skills__name">Technical Writing</h3>
+                      <span class="skills__level">Advanced</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skills__area">
+              <h3 class="skills__title">Technical Skills</h3>
+              <div class="skills__box">
+                <div class="skills__group">
+                  <div class="skills__data">
+                    <i class="ri-checkbox-circle-line"></i>
+                    <div>
+                      <h3 class="skills__name">JavaScript/CSS</h3>
+                      <span class="skills__level">Intermediate</span>
+                    </div>
+                  </div>
+                  <div class="skills__data">
+                    <i class="ri-checkbox-circle-line"></i>
+                    <div>
+                      <h3 class="skills__name">MySQL</h3>
+                      <span class="skills__level">Advanced</span>
+                    </div>
+                  </div>
+                  <div class="skills__data">
+                    <i class="ri-checkbox-circle-line"></i>
+                    <div>
+                      <h3 class="skills__name">Java</h3>
+                      <span class="skills__level">Intermediate</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="skills__group">
+                  <div class="skills__data">
+                    <i class="ri-checkbox-circle-line"></i>
+                    <div>
+                      <h3 class="skills__name">Python</h3>
+                      <span class="skills__level">Intermediate</span>
+                    </div>
+                  </div>
+                  <div class="skills__data">
+                    <i class="ri-checkbox-circle-line"></i>
+                    <div>
+                      <h3 class="skills__name">Canva/Figma</h3>
+                      <span class="skills__level">Advanced</span>
+                    </div>
+                  </div>
+                  <div class="skills__data">
+                    <i class="ri-checkbox-circle-line"></i>
+                    <div>
+                      <h3 class="skills__name">Git/GitHub</h3>
+                      <span class="skills__level">Intermediate</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer container">
+      <span class="footer__copy">
+        © 2023 Abhisek Rath. All rights reserved
+      </span>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
