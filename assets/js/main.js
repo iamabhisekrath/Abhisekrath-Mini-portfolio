@@ -1,75 +1,67 @@
-/*=============== FILTERS TABS ===============*/
-const tabs = document.querySelectorAll("[data-target]");
-const tabContents = document.querySelectorAll("[data-content]");
+/* Filters Tabs */
+const tabs = document.querySelectorAll("[data-target]"),
+  tabContents = document.querySelectorAll("[data-content]");
 
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     const target = document.querySelector(tab.dataset.target);
 
-    // Hide all tab contents
-    tabContents.forEach((tc) => tc.classList.remove("filters__active"));
+    tabContents.forEach((tc) => {
+      tc.classList.remove("filters__active");
+    });
+    target.classList.add("filters__active");
 
-    // Show the target content
-    if (target) {
-      target.classList.add("filters__active");
-    }
-
-    // Remove active class from all tabs
-    tabs.forEach((t) => t.classList.remove("filter-tab-active"));
-
-    // Add active class to the clicked tab
+    tabs.forEach((t) => {
+      t.classList.remove("filter-tab-active");
+    });
     tab.classList.add("filter-tab-active");
   });
 });
 
-/*=============== DARK / LIGHT THEME ===============*/
+/* Dark/Light Theme */
 const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";
-const iconTheme = "ri-sun-line"; // Icon to be shown in light mode
+const iconTheme = "ri-sun-line";
 
-// Previously selected theme (saved in localStorage)
+// Previously selected theme (if user selected)
 const selectedTheme = localStorage.getItem("selected-theme");
 const selectedIcon = localStorage.getItem("selected-icon");
 
-// Helper functions
+// Get current theme
 const getCurrentTheme = () =>
   document.body.classList.contains(darkTheme) ? "dark" : "light";
 const getCurrentIcon = () =>
-  themeButton.classList.contains(iconTheme) ? "ri-sun-line" : "ri-moon-line";
+  themeButton.classList.contains(iconTheme) ? "ri-moon-line" : "ri-sun-line";
 
-// Apply previously saved theme and icon
+// Apply previously selected theme
 if (selectedTheme) {
-  document.body.classList.toggle(darkTheme, selectedTheme === "dark");
-  themeButton.classList.toggle(iconTheme, selectedIcon === "ri-sun-line");
+  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](darkTheme);
+  themeButton.classList[selectedIcon === "ri-moon-line" ? "add" : "remove"](
+    iconTheme
+  );
 }
 
-// Toggle theme and icon on click
+// Toggle theme manually
 themeButton.addEventListener("click", () => {
   document.body.classList.toggle(darkTheme);
   themeButton.classList.toggle(iconTheme);
-
-  // Save to localStorage
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
 
-/*=============== SCROLL REVEAL ANIMATION ===============*/
-if (typeof ScrollReveal !== "undefined") {
-  const sr = ScrollReveal({
-    origin: "top",
-    distance: "60px",
-    duration: 2500,
-    delay: 400,
-  });
+/* Scroll Reveal Animation */
+const sr = ScrollReveal({
+  origin: "top",
+  distance: "60px",
+  duration: 2500,
+  delay: 400,
+});
 
-  sr.reveal(`.profile__border`);
-  sr.reveal(`.profile__name`, { delay: 500 });
-  sr.reveal(`.profile__profession`, { delay: 600 });
-  sr.reveal(`.profile__social`, { delay: 700 });
-  sr.reveal(`.profile__info-group`, { interval: 100, delay: 700 });
-  sr.reveal(`.profile__buttons`, { delay: 800 });
-  sr.reveal(`.filters__content`, { delay: 900 });
-  sr.reveal(`.filters`, { delay: 1000 });
-} else {
-  console.warn("ScrollReveal not loaded. Animations disabled.");
-}
+sr.reveal(`.profile__border`);
+sr.reveal(`.profile__name`, { delay: 500 });
+sr.reveal(`.profile__profession`, { delay: 600 });
+sr.reveal(`.profile__social`, { delay: 700 });
+sr.reveal(`.profile__info-group`, { interval: 100, delay: 700 });
+sr.reveal(`.profile__buttons`, { delay: 800 });
+sr.reveal(`.filters__content`, { delay: 900 });
+sr.reveal(`.filters`, { delay: 1000 });
