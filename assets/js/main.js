@@ -64,4 +64,4 @@ sr.reveal(.profile__social, { delay: 700 });
 sr.reveal(.profile__info-group, { interval: 100, delay: 700 });
 sr.reveal(.profile__buttons, { delay: 800 });
 sr.reveal(.filters__content, { delay: 900 });
-sr.reveal(.filters, { delay: 1000 });    -- check 
+sr.reveal(.filters, { delay: 1000 });    
